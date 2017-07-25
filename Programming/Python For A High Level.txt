@@ -1,0 +1,108 @@
+﻿Asynchronous programming
+
+
+Asynchronous programming is a way of dealing with slow and unpredictable resources. Rather than waiting idle for resources to become available, asynchronous programs are able to handle multiple resources concurrently and efficiently. Programming in an asynchronous way can be challenging because it is necessary to deal with external requests that can arrive in any order, may take a variable amount of time, or may fail unpredictably. In this section, we will introduce the topic by explaining the main concepts and terminology as well as by giving an idea of how asynchronous programs work.
+
+——————————————
+
+Waiting for I/O
+
+
+A modern computer employs different kinds of memory to store data and perform operations. In general, a computer possesses a combination of expensive memory that is capable of operating at fast speeds and cheaper, and more abundant memory that operates at lower speeds and is used to store a larger amount of data.
+
+The memory hierarchy is shown in the following:
+
+```
+registers
+cache
+RAM
+storage
+```
+
+
+At the top of the memory hierarchy are the CPU registers. Those are integrated in the CPU and are used to store and execute machine instructions. Accessing data in a register generally takes one clock cycle. This means that if the CPU operates at 3 GHz, the time it takes to access one element in a CPU register is in the order of 0.3 nanoseconds.
+
+At the layer just below the registers, you can find the CPU cache, which is comprised of multiple levels and is integrated in the processor. The cache operates at a slightly slower speed than the registers but within the same order of magnitude.
+
+The next item in the hierarchy is the main memory (RAM), which holds much more data but is slower than the cache. Fetching an item from memory can take a few hundred clock cycles.
+
+At the bottom layer, you can find persistent storage, such as a rotating disks (HDD) and Solid State Drives (SSD). These devices hold the most data and are orders of magnitude slower than the main memory. An HDD may take a few milliseconds to seek and retrieve an item, while an SSD is substantially faster and takes only a fraction of a millisecond.
+
+To put the relative speed of each memory type into perspective, if you were to have the CPU with a clock speed of about one second, a register access would be equivalent to picking up a pen from the table. A cache access will be equivalent to picking up a book from the shelf. Moving higher in the hierarchy, a RAM access will be equivalent to loading up the laundry (about twenty x slower than the cache). When we move to persistent storage, things are quite a bit different. Retrieving an element from an SSD will be equivalent to doing a four day trip, while retrieving an element from an HDD can take up to six months! The times can stretch even further if we move on to access resources over the network.
+
+From the preceding example, it should be clear that accessing data from storage and other I/O devices is much slower compared to the CPU; therefore, it is very important to handle those resources so that the CPU is never stuck waiting aimlessly. This can be accomplished by carefully designing software capable of managing multiple, ongoing requests at the same time.
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
+
+
+——————————————
+
