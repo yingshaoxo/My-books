@@ -34,31 +34,549 @@ From the preceding example, it should be clear that accessing data from storage
 
 ——————————————
 
+Concurrency
 
+
+Concurrency is a way to implement a system that is able to deal with multiple requests at the same time. The idea is that we can move on and start handling other resources while we wait for a resource to become available. Concurrency works by splitting a task into smaller subtasks that can be executed out of order so that multiple tasks can be partially advanced without waiting for the previous tasks to finish.  
+
+As a first example, we will describe how to implement concurrent access to a slow network resource. Let's say we have a web service that takes the square of a number, and the time between our request and the response will be approximately one second.  We can implement the network_request function that takes a number and returns a dictionary that contains information about the success of the operation and the result. We can simulate such services using the time.sleep function, as follows:
+
+```
+    import time
+
+    def network_request(number):
+        time.sleep(1.0)
+        return {"success": True, "result": number ** 2}
+```
+
+
+We will also write some additional code that performs the request, verifies that the request was successful, and prints the result. In the following code, we define the fetch_square function and use it to calculate the square of the number two using a call to network_request:
+
+```
+    def fetch_square(number):
+        response = network_request(number)
+        if response["success"]:
+            print("Result is: {}".format(response["result"]))
+
+    fetch_square(2)
+    # Output:
+    # Result is: 4
+```
+
+
+Fetching a number from the network will take one second because of the slow network. What if we want to calculate the square of multiple numbers? We can call fetch_square, which will start a network request as soon as the previous one is done:
+
+```
+    fetch_square(2)
+    fetch_square(3)
+    fetch_square(4)
+    # Output:
+    # Result is: 4
+    # Result is: 9
+    # Result is: 16
+```
+
+
+The previous code will take three seconds to run, but it's not the best we can do. Waiting for the previous result to finish is unnecessary as we can technically submit multiple requests at and wait for them parallely.
+
+Ideally, we would like to start other new task while we are waiting for the already submitted tasks to finish. 
+
+This strategy is made possible by the fact that the three requests are completely independent, and we don't need to wait for the completion of a previous task to start the next one. Also, note how a single CPU can comfortably handle this scenario. While distributing the work on multiple CPUs can further speedup the execution, if the waiting time is large compared to the processing times, the speedup will be minimal.
+
+To implement concurrency, it is necessary to think and code differently; in the following sections, we'll demonstrate techniques and best practices to implement robust concurrent applications.
 
 ——————————————
 
+Callbacks(1)
 
+
+The code we have seen so far blocks the execution of the program until the resource is available. The call responsible for the waiting is time.sleep. To make the code start working on other tasks, we need to find a way to avoid blocking the program flow so that the rest of the program can go on with the other tasks.
+
+One of the simplest ways to accomplish this behavior is through callbacks. The strategy is quite similar to what we do when we request a cab.
+
+Imagine that you are at a restaurant and you've had a few drinks. It's raining outside, and you'd rather not take the bus; therefore, you request a taxi and ask them to call when they're outside so that you can come out, and you don't have to wait in the rain.
+
+What you did in this case is request a taxi (that is, the slow resource) but instead of waiting outside until the taxi arrives, you provide your number and instructions (callback) so that you can come outside when they're ready and go home.
+
+We will now show how this mechanism can work in code. We will compare the blocking code of time.sleep with the equivalent non-blocking code of threading.Timer.
+
+For this example, we will write a function, wait_and_print, that will block the program execution for one second and then print a message:
+
+```
+    def wait_and_print(msg):
+        time.sleep(1.0)
+        print(msg)
+```
+
+
+If we want to write the same function in a non-blocking way, we can use the threading.Timer class. We can initialize a threading.Timer instance by passing the amount of time we want to wait and a callback. A callback is simply a function that will be called when the timer expires. Note that we have to also call the Timer.start method to activate the timer:
+
+```
+    import threading
+
+    def wait_and_print_async(msg):
+        def callback():
+            print(msg)
+
+        timer = threading.Timer(1.0, callback)
+        timer.start()
+```
+
+
+An important feature of the wait_and_print_async function is that none of the statements are blocking the execution flow of the program.
+
+This technique of registering callbacks for execution in response to certain events is commonly called the Hollywood principle. This is because, after an audition for a role at Hollywood, you may be told "Don't call us, we'll call you", meaning that they won't tell you if they chose you for the role immediately, but they'll call you in case they do.
+
+To highlight the difference between the blocking and non-blocking version of wait_and_print, we can test and compare the execution of the two versions. In the output comments, the waiting periods are indicated by <wait...>:
+
+```
+    # Syncronous
+    wait_and_print("First call")
+    wait_and_print("Second call")
+    print("After call")
+    # Output:
+    # <wait...>
+    # First call  
+    # <wait...>
+    # Second call
+    # After call
+    # Async
+    wait_and_print_async("First call async")
+    wait_and_print_async("Second call async")
+    print("After submission")
+    # Output:
+    # After submission 
+    # <wait...>
+    # First call
+    # Second call
+```
+
+
+The synchronous version behaves in a very familiar way. The code waits for a second, prints First call, waits for another second, and then prints the Second call and After call messages.
+
+In the asynchronous version, wait_and_print_async submits  (rather than execute) those calls and moves on immediately. You can see this mechanism in action by acknowledging that the "After submission" message is printed immediately.
 
 ——————————————
 
+Callbacks(2)
 
+
+With this in mind, we can explore a slightly more complex situation by rewriting our network_request function using callbacks. In the following code, we define the network_request_async function. The biggest difference between network_request_async and its blocking counterpart is that network_request_async doesn't return anything. This is because we are merely submitting the request when network_request_async is called, but the value is available only when the request is completed.
+
+If we can't return anything, how do we pass the result of the request? Rather than returning the value, we will pass the result as an argument to the on_done callback.
+
+The rest of the function consists of submitting a callback (called timer_done) to the timer.Timer class that will call on_done when it's ready:
+
+```
+    def network_request_async(number, on_done):
+
+        def timer_done():
+            on_done({"success": True, 
+                     "result": number ** 2})
+
+        timer = threading.Timer(1.0, timer_done)
+        timer.start()
+```
+
+
+The usage of network_request_async is quite similar to timer.Timer; all we have to do is pass the number we want to square and a callback that will receive the result when it's ready. This is demonstrated in the following snippet:
+
+```
+    def on_done(result):
+        print(result)
+
+    network_request_async(2, on_done)
+```
+
+
+Now, if we submit multiple network requests, we note that the calls get executed concurrently and do not block the code:
+
+```
+    network_request_async(2, on_done)
+    network_request_async(3, on_done)
+    network_request_async(4, on_done)
+    print("After submission")
+```
+
+
+In order to use network_request_async in fetch_square, we need to adapt the code to use asynchronous constructs. In the following code, we modify fetch_square by defining and passing the on_done callback to network_request_async:
+
+```
+    def fetch_square(number):
+        def on_done(response):
+            if response["success"]:
+                print("Result is: {}".format(response["result"]))
+
+        network_request_async(number, on_done)
+```
+
+
+You may have noted that the asynchronous code is significantly more convoluted than its synchronous counterpart. This is due to the fact that we are required to write and pass a callback every time we need to retrieve a certain result, causing the code to become nested and hard to follow.
 
 ——————————————
 
+```
+import threading
 
+def network_request_async(number, on_done):
+    def timer_done():
+        on_done({'success': True,
+            'result': number ** 2})
+
+    timer = threading.Timer(1, timer_done)
+    timer.start()
+
+def fetch_square(number):
+    def on_done(response): # What is on_done, basaclly, based on done or finished.
+        if response['success']:
+            print('Result is: {}'.format(response['result']))
+
+    network_request_async(number, on_done)
+
+fetch_square(7)
+```
 
 ——————————————
 
+Futures
 
+
+Futures are a more convenient pattern that can be used to keep track of the results of asynchronous calls. In the preceding code, we saw that rather than returning values, we accept callbacks and pass the results when they are ready. It is interesting to note that, so far, there is no easy way to track the status of the resource.
+
+A future is an abstraction that helps us keep track of the requested resources and that we are waiting to become available. In Python, you can find a future implementation in the concurrent.futures.Future class. A Future instance can be created by calling its constructor with no arguments:
+
+```
+    fut = Future()
+    # Result:
+    # <Future at 0x7f03e41599e8 state=pending>
+```
+
+
+A future represents a value that is not yet available. You can see that its string representation reports the current status of the result which, in our case, is still pending. In order to make a result available, we can use the Future.set_result method:
+
+```
+    fut.set_result("Hello")
+    # Result:
+    # <Future at 0x7f03e41599e8 state=finished returned str>
+
+    fut.result()
+    # Result:
+    # "Hello"
+```
+
+
+You can see that once we set the result, the Future will report that the task is finished and can be accessed using the Future.result method. It is also possible to subscribe a callback to a future so that, as soon as the result is available, the callback is executed. To attach a callback, it is sufficient to pass a function to the Future.add_done_callback method. When the task completes, the function will be called with the Future instance as its first argument and the result can be retrieved using the Future.result() method:
+
+```
+    fut = Future()
+    fut.add_done_callback(lambda future: print(future.result(), flush=True))
+    fut.set_result("Hello")
+    # Output:
+    # Hello
+```
+
+
+To get a grasp on how futures can be used in practice, we will adapt the network_request_async function to use futures. The idea is that, this time, instead of returning nothing, we return a Future that will keep track of the result for us. Note two things:
+
+1. We don't need to accept an on_done callback as callbacks can be connected later using the Future.add_done_callback method. Also, we pass the generic Future.set_result method as the callback for threading.Timer.
+
+2. This time we are able to return a value, thus making the code a bit more similar to the blocking version we saw in the preceding section:
+
+```
+    from concurrent.futures import Future
+
+    def network_request_async(number):
+        future = Future()
+        result = {"success": True, "result": number ** 2}
+        timer = threading.Timer(1.0, lambda: future.set_result(result))
+        timer.start()
+        return future
+
+    fut = network_request_async(2)
+```
+
+
+If you execute the preceding code, nothing will happen as the code only consists of preparing and returning a Future instance. To enable further operation of the future results, we need to use the Future.add_done_callback method. In the following code, we adapt the fetch_square function to use futures:
+
+```
+    def fetch_square(number):
+        fut = network_request_async(number)
+
+        def on_done_future(future):
+            response = future.result()
+            if response["success"]:
+                print("Result is: {}".format(response["result"]))
+        
+        fut.add_done_callback(on_done_future)
+```
+
+
+The code still looks quite similar to the callback version. Futures are a different and slightly more convenient way of working with callbacks. Futures are also advantageous, because they can keep track of the resource status, cancel (unschedule) scheduled tasks, and handle exceptions more naturally.
 
 ——————————————
 
+Event loops
 
+
+So far, we have implemented parallelism using OS threads. However, in many asynchronous frameworks, the coordination of concurrent tasks is managed by an event loop.
+
+The idea behind an event loop is to continuously monitor the status of the various resources (for example, network connections and database queries) and trigger the execution of callbacks when events take place (for example, when a resource is ready or when a timer expires).
+
+As a first example, we will implement a thread-free version of threading.Timer. We can define a Timer class that will take a timeout and implement the Timer.done method that returns True if the timer has expired:
+
+```
+    class Timer:
+    
+        def __init__(self, timeout):
+            self.timeout = timeout
+            self.start = time.time()
+    
+        def done(self):
+            return time.time() - self.start > self.timeout
+```
+
+
+To determine whether the timer has expired, we can write a loop that continuously checks the timer status by calling the Timer.done method. When the timer expires, we can print a message and exit the cycle:
+
+```
+    timer = Timer(1.0)
+
+    while True:
+        if timer.done():
+            print("Timer is done!")
+            break
+```
+
+
+By implementing the timer in this way, the flow of execution is never blocked and we can, in principle, do other work inside the while loop.
+
+Ideally, we would like to attach a custom function that executes when the timer goes off, just like we did in threading.Timer. To do this, we can implement a method, Timer.on_timer_done, that will accept a callback to be executed when the timer goes off:
+
+```
+    class Timer:
+       # ... previous code 
+       def on_timer_done(self, callback):
+            self.callback = callback
+```
+
+
+Note that on_timer_done merely stores a reference to the callback. The entity that monitors the event and executes the callback is the loop. This concept is demonstrated as follows. Rather than using the print function, the loop will call timer.callback when appropriate:
+
+```
+    timer = Timer(1.0)
+    timer.on_timer_done(lambda: print("Timer is done!"))
+
+    while True:
+        if timer.done():
+            timer.callback()
+            break
+```
+
+
+As you can see, an asynchronous framework is starting to take place. All we did outside the loop was define the timer and the callback, while the loop took care of monitoring the timer and executing the associated callback. We can further extend our code by implementing support for multiple timers.
+
+A natural way to implement multiple timers is to add a few Timer instances to a list and modify our event loop to periodically check all the timers and dispatch the callbacks when required. In the following code, we define two timers and attach a callback to each of them. Those timers are added to a list, timers, that is continuously monitored by our event loop. As soon as a timer is done, we execute the callback and remove the event from the list:
+
+```
+    timers = []
+
+    timer1 = Timer(1.0)
+    timer1.on_timer_done(lambda: print("First timer is done!"))
+
+    timer2 = Timer(2.0)
+    timer2.on_timer_done(lambda: print("Second timer is done!"))
+
+    timers.append(timer1)
+    timers.append(timer2)
+
+    while True:
+        for timer in timers:
+            if timer.done():
+                timer.callback()
+                timers.remove(timer)
+        # If no more timers are left, we exit the loop 
+        if len(timers) == 0:
+            break
+```
+
+
+The main restriction of an event loop is, since the flow of execution is managed by a continuously running loop, that it never uses blocking calls. If we use any blocking statement (such as time.sleep) inside the loop, you can imagine how the event monitoring and callback dispatching will stop until the blocking call is done.
+
+To avoid this, rather than using a blocking call, such as time.sleep, we let the event loop detect and execute the callback when the resource is ready. By not blocking the execution flow, the event loop is free to monitor multiple resources in a concurrent way.
+
+The Python standard libraries include a very convenient event loop-based concurrency framework, asyncio, which will be the topic of the next section.
 
 ——————————————
 
+The asyncio framework
 
+
+By now, you should have a solid foundation of how concurrency works, and how to use callbacks and futures. We can now move on and learn how to use the asyncio package present in the standard library since version 3.4. We will also explore the brand new async/await syntax to deal with asynchronous programming in a very natural way.
+
+As a first example, we will see how to retrieve and execute a simple callback using asyncio. The asyncio loop can be retrieved by calling the asyncio.get_event_loop() function. We can schedule a callback for execution using  loop.call_later that takes a delay in seconds and a callback. We can also use the loop.stop method to halt the loop and exit the program.  To start processing the scheduled call, it is necessary to start the loop, which can be done using loop.run_forever. The following example demonstrates the usage of these basic methods by scheduling a callback that will print a message and halt the loop:
+
+```
+    import asyncio
+
+    loop = asyncio.get_event_loop()
+
+    def callback():
+        print("Hello, asyncio")
+        loop.stop()
+
+    loop.call_later(1.0, callback)
+    loop.run_forever()
+```
+
+——————————————
+
+Coroutines(1)
+
+
+One of the main problems with callbacks is that they require you to break the program execution into small functions that will be invoked when a certain event takes place. As we saw in the earlier sections, callbacks can quickly become cumbersome.
+
+Coroutines are another, perhaps a more natural, way to break up the program execution into chunks. They allow the programmer to write code that resembles synchronous code but will execute asynchronously. You may think of a coroutine as a function that can be stopped and resumed. A basic example of coroutines is generators.
+
+Generators can be defined in Python using the yield statement inside a function. In the following example, we implement the range_generator function, which produces and returns values from 0 to n. We also add a print statement to log the internal state of the generator:
+
+```
+    def range_generator(n):
+        i = 0
+        while i < n:
+            print("Generating value {}".format(i))
+            yield i
+            i += 1
+```
+
+
+When we call the range_generator function, the code is not executed immediately. Note that nothing is printed to output when the following snippet is executed. Instead, a generator object is returned:
+
+```
+    generator = range_generator(3)
+    generator
+    # Result:
+    # <generator object range_generator at 0x7f03e418ba40>
+```
+
+
+In order to start pulling values from a generator, it is necessary to use the next function:
+
+```
+    next(generator)
+    # Output:
+    # Generating value 0
+
+    next(generator)
+    # Output:
+    # Generating value 1
+```
+
+
+Note that every time we invoke next, the code runs until it encounters the next yield statement and it is necessary to issue another next statement to resume the generator execution. You can think of a yield statement as a breakpoint where we can stop and resume execution (while also maintaining the internal state of the generator). This ability of stopping and resuming execution can be leveraged by the event loop to allow for concurrency. 
+
+It is also possible to inject (rather than extract) values in the generator through the yield statement. In the following example, we declare a function parrot that will repeat each message that we send. To allow a generator to receive a value, you can assign yield to a variable (in our case, it is message = yield). To insert values in the generator, we can use the send method. In the Python world, a generator that can also receive values is called a generator-based coroutine:
+
+```
+    def parrot():
+        while True:
+            message = yield
+            print("Parrot says: {}".format(message))
+
+    generator = parrot()
+    generator.send(None)
+    generator.send("Hello")
+    generator.send("World")
+```
+
+
+Note that we also need to issue a generator.send(None) before we can start sending messages; this is done to bootstrap the function execution and bring us to the first yield statement. Also, note that there is an infinite loop inside parrot; if we implement this without using generators, we will get stuck running the loop forever!
+
+With this in mind, you can imagine how an event loop can partially progress several of these generators without blocking the execution of the whole program. You can also imagine how a generator can be advanced only when some resource is ready, therefore eliminating the need for a callback.
+
+——————————————
+
+Coroutines(2)
+
+
+It is possible to implement coroutines in asyncio using the yield statement. However, Python supports the definition of powerful coroutines using a more intuitive syntax since version 3.5.
+
+To define a coroutine with asyncio, you can use the async def statement:
+
+```
+    async def hello():
+        print("Hello, async!")
+
+    coro = hello()
+    coro
+    # Output:
+    # <coroutine object hello at 0x7f314846bd58>
+```
+
+
+As you can see, if we call the hello function, the function body is not executed immediately, but a coroutine object is returned. The asyncio coroutines do not support next, but they can be easily run in the asyncio event loop using the run_until_complete method:
+
+```
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(coro)
+```
+
+
+The asyncio  module provides resources (called awaitables) that can be requested inside coroutines through the await syntax. For example, if we want to wait for a certain time and then execute a statement, we can use the asyncio.sleep function:
+
+```
+    async def wait_and_print(msg):
+        await asyncio.sleep(1)
+        print("Message: ", msg)
+    
+    loop.run_until_complete(wait_and_print("Hello"))
+```
+
+
+The result is beautiful, clean code. We are writing perfectly functional asynchronous code without all the ugliness of callbacks!
+
+Even better, coroutines are also awaitable, and we can use the await statement to chain coroutines asynchronously. In the following example, we rewrite the network_request function, which we defined earlier, by replacing the call to time.sleep with asyncio.sleep:
+
+```
+    async def network_request(number):
+         await asyncio.sleep(1.0)
+         return {"success": True, "result": number ** 2}
+```
+
+
+We can follow up by reimplementing fetch_square. As you can see, we can await network_request directly without needing additional futures or callbacks.
+
+```
+    async def fetch_square(number):
+         response = await network_request(number)
+         if response["success"]:
+             print("Result is: {}".format(response["result"]))
+```
+
+
+The coroutines can be executed individually using loop.run_until_complete:
+
+```
+    loop.run_until_complete(fetch_square(2))
+    loop.run_until_complete(fetch_square(3))
+    loop.run_until_complete(fetch_square(4))
+```
+
+
+Running tasks using run_until_complete is fine for testing and debugging. However, our program will be started with loop.run_forever most of the times, and we will need to submit our tasks while the loop is already running.
+
+asyncio provides the ensure_future function, which schedules coroutines (as well as futures) for execution. ensure_future can be used by simply passing the coroutine we want to schedule. The following code will schedule multiple calls to fetch_square that will be executed concurrently:
+
+```
+    asyncio.ensure_future(fetch_square(2))
+    asyncio.ensure_future(fetch_square(3))
+    asyncio.ensure_future(fetch_square(4))
+
+    loop.run_forever()
+    # Hit Ctrl-C to stop the loop
+```
+
+
+As a bonus, when passing a coroutine, the asyncio.ensure_future function will return a Task instance (which is a subclass of Future) so that we can take advantage of the await syntax without having to give up the resource tracking capabilities of regular futures.
 
 ——————————————
 
