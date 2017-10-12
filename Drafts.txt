@@ -485,27 +485,50 @@ And certainly, you can't learn so many skills at once. Learn it one by one, trai
 
 ——————————————
 
+关于小集体稳定性的思考：
 
-
-——————————————
-
-
-
-——————————————
-
-
-
-——————————————
-
-
+假设一个寝室有6人，则有下列分布：
+6
+3、3
+2、4
+2、2、2
+1、1、1、1、1、1
 
 ——————————————
 
-
+加密学与语言之间的联系：发出来的文章是公匙，每个人头脑中的语言思维是私匙，每个人对文章解码出的含义（差异信息）不完全相同，相同部分源于他们受过基本相同的教育（语文课或公认词典（基于语言契约））。
 
 ——————————————
 
+关于智力，我又有了新的理解：
 
+
+面对同一个问题，高手可以有多个解法，普通人只有一个或无法解答。
+
+智力越高，解决问题的方案越多，选择越多，路越宽。
+
+
+（还有一种情况：一群人，每个人想一个不同的方法，三个臭皮匠，顶个诸葛亮；如果每个人接受同样的教育、不独立思考，全想出一样的方法，那一群人=一个SB。）
+
+——————————————
+
+人还是需要不断学习和训练的，毕竟不同于机器，人训练的神经网络会随着时间的流逝而消退。(除非形成永久记忆，虽然我很怀疑永久记忆的存在，因为你能永久记住某个技能充其量是你经常能用到它，不管是有意识的还是潜意识的)
+
+——————————————
+
+In the future, Apps is not only Apps, but a server, which stores everything of his user.
+
+So from this respect, we can see the Communist Party of China could using this efficiency of Internet to control all the people in China, from body to money.
+
+The good news is, you don't have to starve anymore.
+
+——————————————
+
+Sometimes we feel upset is just because of things may not happen as we thought before. 
+
+That's OK. Due to that, you'll learned how to improve yourself with better prediction and consideration. 
+
+(This kind of training makes man intelligent, it's also the inner theory of Deep Learning.)
 
 ——————————————
 
