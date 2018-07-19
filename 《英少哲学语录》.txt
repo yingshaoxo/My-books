@@ -124,4 +124,6 @@
 
 65.无法量化为计算机可处理的逻辑的教学，毫无意义。
 
+66.我无法表达的，我也无法学会。 -- inspired by deep learning
 
+67.Learn by examples, learn by data, that's the only way which gonna work.
