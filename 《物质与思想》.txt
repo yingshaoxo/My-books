@@ -24,7 +24,7 @@ QQ：1576570260
 
 QQ群号：208408255
 
-博客地址（每月更新，不跟则无）：http://yingshaoxo.blog.tianya.cn
+Telegram or  Twitter: @yingshaoxo
 
 
 
@@ -221,7 +221,7 @@ QQ群号：208408255
 
 从这一点说，使人们节省时间、提高效率的东西会被推崇。
 
-“黄”是对一种繁殖欲望满足感的依赖。“赌”是一种期待变数、相信挑战的情绪的依赖。“毒”的本身就是依赖。
+“黄”是对一种繁殖欲望满足感的依赖。“赌”是一种期待变数、相信挑战的情绪的依赖。“毒”的本身就是依赖，通过对神经系统的破坏使人产生依赖。
 
 依赖关乎信任、信念，是洗脑魔力的源泉，也是受吸引力法则影响的产物。越依赖，越洗脑，影响力越大。
 
@@ -264,7 +264,9 @@ Math+English+Programming是绑在一起的
 
 Math提供理论，English负责表示，Programming负责实现
 
-他们共享着差不多的世界观
+他们共享着差不多的世界观。
+
+同时你也可以说 Programming 是新一代的 Math，同样的封装，数学需要会用繁杂的公式，而编程只需要记住函数关键词。
 
 
 其实不用太关心你学到的具体知识在十年后是否会过期，而要重点关注你是否在学习、运用这些知识解决问题的过程中建立了自己的认知习惯和思维模式。这些东西，毫不夸张地说，能让你终身受益。
@@ -272,7 +274,7 @@ Math提供理论，English负责表示，Programming负责实现
 
 We just use number to measure the difference, in this way, it can be accuracy. That's the power of mathematics.
 
-Based on that, you got physical, chemical and biological. With those, you can create machines (like computer), control reaction of materials, change human body, and so on. That's the power of human-being.
+Based on that, you got physical, chemical and biological. With those, you can create machines (like computer), control reaction of materials, change human bodys, and so on. That's the power of human-being.
 
 In the end, comes history, politics and geography, It's related to profit distribution, mind controlling, and strategy of war. That's the power of leaders.
 
@@ -284,11 +286,21 @@ In the end, comes history, politics and geography, It's related to profit distri
 这实际上是在考验群体的智慧，我认为群体不可能在事件一开始就正确判定是否真对他们有利。
 
 
-所谓非理性就是一套利益决策系统developed by natural.
-所谓理性就是一套nature designed利益决策系统, but you have to develop.
+所谓非理性就是一套利益决策系统 developed by natural，由基因遗传下来.
+所谓理性就是基于上面那套系统，you have to develop it to get better functionality.
 
 
 那些在外省能考清华北大的，从能力上，早就达到了大学的水准(所掌握的东西是大学的超集)
+
+
+Anything human can do, supervised learning can do.
+
+Everything human can't do, reinforcement learning can do.
+
+
+当你做了大量的功，你将不再有 doubt，随时随地有 confidence.
+
+当你保持稳定的高速功率输出，你会坚信你能改变世界，事实也是如此。
 
 
 
@@ -301,6 +313,7 @@ In the end, comes history, politics and geography, It's related to profit distri
 For example: 
 I love my country → My country! → I will protect my country.
 I love my lady → My lady! → I will protect my lady.
+
 
 
 
@@ -343,7 +356,6 @@ I love my lady → My lady! → I will protect my lady.
 绝对论建立在按某一极端认知去行动能让人获利的基础之上。（比如我说“做吧，这事绝对没错”，那这事肯定对我有好处，你好我也好）
 
 
-
 导论3.量变与质变、部分与整体——事物评判的标准
 
 定义一种标准，划分事物发展到什么程度为质变，而没达到这个程度就为量变。（就像做“木块受力”这个物理实验，木块受力，移动为质变，不动为量变）
@@ -353,7 +365,6 @@ I love my lady → My lady! → I will protect my lady.
 定义一个整体，其中的组成部分相对于这个整体为部分。（定义人类为一个整体，那么男人和女人就是组成人类这个整体的两部分。因为男女的不同，所以分为两类，至于哪些不同可以分，那是标准问题。引入人妖，这个问题就难了。）
 
 定义与标准涉及社会语言、社会思想等契约。
-
 
 
 导论4.世界是一个动态的过程
@@ -401,6 +412,7 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+
 特辑:数学、推理与逻辑
 
 逻辑推理有两个方面，归纳(特殊推普遍)和演绎(普遍推特殊)
@@ -410,6 +422,7 @@ I love my lady → My lady! → I will protect my lady.
 演绎是我们用我们找到的规律来预测接下来所发生事件的一个过程。
 
 归纳和演绎就像一个硬币的正反面，是我们认识世界的一种方法。
+
 
 
 
@@ -441,6 +454,7 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+
 特辑:我对文学、影视、音乐等作品的看法
 
 在欣赏这些时，我们总要将自己与其中某个角色挂钩。
@@ -457,6 +471,7 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+
 特辑:我对人事的看法
 
 人与人之间的关系就是利益的联系，这里的利益是指一切人想要的、需要的东西。
@@ -465,7 +480,7 @@ I love my lady → My lady! → I will protect my lady.
 
 观察生物，不难发现，繁殖才有后代，不能或不想繁殖的物种都消失了。
 
-这就是“生物”的本意——能存活并繁殖的物体。
+这就是“生物”的本意——能存活并(繁殖)生育的物体。
 
 生存是为了繁殖后代，繁殖是为了延续生命，两者不可分割。
 
@@ -575,6 +590,7 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+
 特辑:关于精神
 
 据弗洛伊德的研究，人们很多精神、心理活动都与性有关(准确的说，产生于性，从远古生命开始。生存与繁殖这两个方面也可说成一个“性”字。)
@@ -621,6 +637,8 @@ I love my lady → My lady! → I will protect my lady.
 
 定理公式——由文字语言抽离出来的更精准的表达，如数学、物理、化学的表达等。
 
+编程语言——既有逻辑的准确性，又有自然语言的流畅性，如 Python
+
 目前大多数人的可表述思维是由口语+文字构成的。
 
 生物的认知相对，在认知过程中会产生差异信息，在欧美把它叫做心理模型。
@@ -661,13 +679,13 @@ I love my lady → My lady! → I will protect my lady.
 
 不急，在语言中，认知不光对于具体事物，也包括我们自己的行为。比如伸手、弹跳、逃跑等。
 
-正如我们知道猎食者出现要逃跑，异性出现要追随一样，在某一理论中，会有自身行为与其它事物间的相互作用的描述。
+正如我们知道猎食者出现要逃跑，异性出现要追随一样，在某一理论中，会有自身行为与其它事物间的相互作用的描述。( reinforcement learning)
 
-因此在一种概括性思想中，不能只学总思想，要从上到下，直至量化到一种行动级别的思想（理论）为止。
+因此在一种概括性思想中，不能只学总思想，要从上到下，直至量化到一种行动级别的思想（理论）为止。(如果该理论无法量化到行动，那意味着你无法拿它做预测，也就意味着它没用)
 
-我们要学的，是像那金字塔一样的知识结构或体系(是一个由抽象到具体的整体，是相互连接的有单一顶点、有多个基点的知识体系)。
+我们要学的，是像那金字塔一样的知识结构或体系(是一个由抽象到具体的整体，是相互连接的有单一顶点、有多个基点的知识体系)。(# 怎么感觉这么像神经网络)
 
-不管对过程的认识如何，只要能引导我们做出有利于我们的行动就行。不在乎你是否用同一理论，你完全可以各种学科、理论知识混用，达到目的即可。
+不管对过程的认识如何，只要能引导我们做出有利于我们的行动就行。不在乎你是否用同一理论，你完全可以各种学科、理论知识混用，达到目的即可。(# 未来的人工智能应该学会自己选择使用不同的底层人工智能模块，从而实现复杂的功能)
 
 
 在婴幼儿时期人类是没有语言的，这时对世界的认知构成了我们的潜意识——童年时期以自我为中心，与外界交互的意识流，我们称为潜意识。
@@ -729,9 +747,11 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+
 特辑：文学
 
 无知的人总夸大苦难的作用，却不重视如何走出苦难。
+
 
 
 
@@ -743,11 +763,11 @@ I love my lady → My lady! → I will protect my lady.
 
 在古代主要靠暴力杀戮去夺取，到了近代，换了一种文明的方式——考试
 
-政府通过考试来分配一部分资源,同时稳定（、控制）知识分子。
+政府通过考试来分配一部分资源，同时稳定（、控制）知识分子。
 
-私人通过考试，廉价快捷的选拔人才用以牟利——看文凭是认识一个人才能最快捷的方式。
+私人通过考试，廉价快捷的选拔人才用以牟利——看文凭是认识一个人才能最快捷的方式。(但不是最准确的方案，总有漏网的天才)
 
-教学资源分配也在其中，优秀教学资源要给优秀的学生才能实现配置最优化、人才输出最大化。
+教学资源分配也在其中，优秀教学资源要给优秀的学生才能实现配置最优化、人才输出最大化。(因为花大价钱从1000个人里培养一个人才是不划算的)
 
 这都推动了人类知识的传承（在校期间基本不含创新）。
 
@@ -756,10 +776,56 @@ I love my lady → My lady! → I will protect my lady.
 
 
 
+特辑:关于AI
+
+监督学习类似于智力复制转移，基于现有 labeled data，资源越多、越好，习得的智慧越多
+
+而强化学习基于经验的积累，属于无中生有，即使没有好 data，只要处于一个有规律的世界或者环境，就能通过不断地实验获得智力 (所谓改变世界的科技创新，都是无中生有，靠实验出来的
+
+
+
+
+特辑:关于教育
+
+中国教育失败的关键在于：只重视监督学习，而忽略掉强化学习。
+
+事实是，监督学习只能让学生的能力等于或小于老师(现有资源)，而强化学习可以超越老师。
+
+但是强化学习者前期像傻子，做什么事都要不断试错，所以极其容易被应试教育淘汰。
+
+几乎所有的自学成才的伟人都是强化学习者。
+
+
+老师没收孩子作业答案，不管是从监督学习还是强化学习的角度，都是在作恶。
+
+没资源，没 predicted data ，无法获得智慧。
+
+(老师为了树立权威，而抹杀了孩子们成为天才的可能性)
+
+
+
+
+特辑:关于编程
+
+同学们，我们不是在学编程，我们是在学英语和数学。
+(Dear students, we are not learning programming, we are learning English and mathematics.)
+
+Dear students, we are not learning English and Mathematics, we are learning how to represent and how to do logical calculation.
+
+When I say that, actually, I'm saying that programming is a new generation of mathematics.
+Everyone can enjoy the fun of math by programming.
+Also, you don't have to remember math formulas to calculate, you just have to remember key words of API.
+
+
+理论上，如果一个程序员不停地写有用的代码而他的大脑又不衰老且有足够的容量和计算力的话，他可以变成神
+
+
+
 
 特辑:跳出思维之外
 
 事实上在对过程的描述中，以任何一个环节为中心与其他部分进行比较都可以。也就是说，不管什么东西都可以和世界上其他东西作比较，从而解释这个世界。
+
 
 
 
@@ -787,8 +853,6 @@ I love my lady → My lady! → I will protect my lady.
 请在生活中保持大脑活跃并积极思考，这是避免看完本书产生副作用的一个好方法。
 
 也可以选择忘记，毕竟本书只解析了意识的底层部分，它早已被我们简化忽略掉了，我们在日常生活中靠直觉行事会更好。
-
-
 
 
 
