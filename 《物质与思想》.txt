@@ -211,19 +211,22 @@ Telegram or  Twitter: @yingshaoxo
 人脑如计算机，智商高像2G内存，智商低像1G内存，但真正起作用的是程序。即使是256M也可以运行一个实用的程序。
 
 
-在学校这十几年，各种学科在我脑海中混合。让我发现了一个道理：任何事物的特性都是吸引，即万有引力。
+
+在学校这十几年，各种学科在我脑海中混合。
+
+
+让我发现了一个道理：任何带“力”的名词，对人来讲都是越大越好。
+
+比如吸引力：
 
 产品好坏的评判标准是吸引力大小，包括瞬间的和持久的。用户每日花在上面的时间越多，产品的吸引力越大，就越好。
 
 一个人的优劣标准也是吸引力大小，他展示得越优秀，越是吸引你。你恨不得关注他的每一条动态，事实上，你关注他越多，你就越想为他做点什么（明星代言原理类似）。所以营销的高级手段，就是推销自己，把被吸引者变成粉丝，再售卖你的产品。
 
-一个人每天的时间是有限的，可以说，生存线以上，最宝贵的是时间，不管是你个人的还是亲人的。然而时间的延长等于生命。有的人每日花10多个小时在工厂做工，就是把时间、吸引力给了工厂的产品，好让产品具备一定的吸引力。
+一个人每天的时间是有限的，可以说，生存线以上，最宝贵的是时间。时间的延长等于生命。有的人每日花10多个小时在工厂做工，就是把时间、吸引力给了工厂的产品，好让产品具备一定的吸引力。
 
 从这一点说，使人们节省时间、提高效率的东西会被推崇。
 
-“黄”是对一种繁殖欲望满足感的依赖。“赌”是一种期待变数、相信挑战的情绪的依赖。“毒”的本身就是依赖，通过对神经系统的破坏使人产生依赖。
-
-依赖关乎信任、信念，是洗脑魔力的源泉，也是受吸引力法则影响的产物。越依赖，越洗脑，影响力越大。
 
 
 所有的程序不过是对数据进行处理。计算机是计算什么的呢？数据。数据的另一个称呼是信息，所以有“信息技术”这个词。
@@ -233,6 +236,7 @@ Telegram or  Twitter: @yingshaoxo
 文字是数据的表现方式之一。数据的本质是事物的差异。对于计算机来说0.5和1/2没区别，代表同样的概率。所有事物的差异都可以用数字的大小关系等价代换。
 
 因而机器能学习，因为你把人类能理解的差异变成了计算机能理解的差异。
+
 
 
 少数原则：
@@ -250,7 +254,9 @@ Telegram or  Twitter: @yingshaoxo
 社会是一个金字塔，人员会流动，但阶层是固定的，forever.
 
 
+
 智力的本质体现是预测的时间长度与准确度。
+
 
 
 人类进化后发现用通讯软件发即时信息比口耳相传高效。
@@ -258,6 +264,7 @@ Telegram or  Twitter: @yingshaoxo
 虽然大多数人都这样做，但还是摆脱不了自然交流的欲望，所以他们需要言谈类节目 from radio or video.
 
 所以真理是：小部分人说，大部分人听，而被倾听则成为享受(多数人追求的目标) 。
+
 
 
 Math+English+Programming是绑在一起的
@@ -269,7 +276,9 @@ Math提供理论，English负责表示，Programming负责实现
 同时你也可以说 Programming 是新一代的 Math，同样的封装，数学需要会用繁杂的公式，而编程只需要记住函数关键词。
 
 
+
 其实不用太关心你学到的具体知识在十年后是否会过期，而要重点关注你是否在学习、运用这些知识解决问题的过程中建立了自己的认知习惯和思维模式。这些东西，毫不夸张地说，能让你终身受益。
+
 
 
 We just use number to measure the difference, in this way, it can be accuracy. That's the power of mathematics.
@@ -277,6 +286,7 @@ We just use number to measure the difference, in this way, it can be accuracy. T
 Based on that, you got physical, chemical and biological. With those, you can create machines (like computer), control reaction of materials, change human bodys, and so on. That's the power of human-being.
 
 In the end, comes history, politics and geography, It's related to profit distribution, mind controlling, and strategy of war. That's the power of leaders.
+
 
 
 乌合之众：
@@ -290,12 +300,15 @@ In the end, comes history, politics and geography, It's related to profit distri
 所谓理性就是基于上面那套系统，you have to develop it to get better functionality.
 
 
+
 那些在外省能考清华北大的，从能力上，早就达到了大学的水准(所掌握的东西是大学的超集)
+
 
 
 Anything human can do, supervised learning can do.
 
 Everything human can't do, reinforcement learning can do.
+
 
 
 当你做了大量的功，你将不再有 doubt，随时随地有 confidence.
@@ -451,6 +464,43 @@ I love my lady → My lady! → I will protect my lady.
 像国家这种集中利益体系，如果不能适应社会多数人需求交换的需要，就会被改变（如社会制度阻碍经济发展导致的革命）。
 
 终极猜想:由宇宙大爆炸可知，我们正处在一个烟花爆炸的过程。微缩到地球，需求就像烟花爆炸后的小火星，迫不及待想燃尽。殊不知，结果是灰飞烟灭。
+
+
+
+
+特辑:浅析人的学习、思考模式
+
+总体来讲，分为 supervised learning and reinforcement learning
+
+具体： 
+
+你看见火山爆发就跑，这不是自然形成的，而是你之间见过别人不跑，死了。
+
+你记住了这个常识、这个链式法则，所以你照着它做。
+
+
+我们人生中会积累无数的常识，有的是别人给的，有的是自己试出来的。
+
+在我们做决定时，各种常识会跳出来指导你行动，有的常识说你该做这件事，有的常识又说你不该做这件事。
+
+你到底做不做呢？我们实际的决定还是取决于各个常识的权重。
+
+
+根据你个人的经验，跟着有些常识做事你获得了收益和回报，所以这些常识的权重高。
+
+而根据另一些常识做事，你获得的收益少，或者它们根本就不符合事实，用这些常识预测事物根本不准，所以这些常识权重低。
+
+
+基于这样一种行为决策机制，怎样才能让自己每次选择的常识、做的决策都是正确的呢？那就是不断尝试。
+
+你失败得越多，遇到的挫折越多，而你又没倒下，反而去总结经验，你就会越明白哪些常识是错的，哪些常识或直觉是对的。
+
+从而利用这些逻辑链条帮助你成功地预测 未来 和 你行动 之间的联系，进而获得回报、获得收益、获得成功。
+
+
+其中自己去试属于 reinforcement learning, 听信别人讲的知识 称为 supervised learning。
+
+reinforcement learning 可以让你超越老师、超越人体极限; 而 supervised learning 不能，它只能让你的知识 <= 你老师。
 
 
 
