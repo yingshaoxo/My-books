@@ -620,3 +620,136 @@ Dec 08, 2019
 比如一个人精通所有军事武器、拥有特工级别的体术（就像生化危机里的 Alice 一样
 
 一句话：凡是学校批量生产不了的东西，都值得学。
+
+——————————————
+
+Dec 09, 2019
+
+
+不限制人身自由的学校，就是好学校
+
+——————————————
+
+Dec 10, 2019
+
+
+有多少学校打着教育的旗号，实质上干的是奴役人的勾当。（他们把学生关在学校，一方面赚他们的课时费，另一方面用他们给校园经济输血）
+
+——————————————
+
+Dec 14, 2019
+
+
+School is not a place for smart people.
+
+--- Rick and Morty
+
+——————————————
+
+Dec 25, 2019
+
+
+中国的大学，有一个重要的任务，那就是增强学生的奴性
+
+以毕业证为威胁，制定各种不合理的规则，让你 follow, 你要是不遵守，就毕不了业
+
+——————————————
+
+Jan 07, 2020
+
+
+自恋的人喜欢听自己唱的歌
+
+——————————————
+
+Jan 08, 2020
+
+
+Software development is all about motivations.
+
+It can be money, or it can be a need of you that haven't been fulfilled yet.
+
+Unfortunately, 我能找到几乎所有能满足我需求的软件，同时那些要求太高的需求，别人做不出来，我也做不出来
+
+But is that true? 要是别人能做出来，还要我干嘛？复制粘贴？
+
+
+
+Recently I found that if I want to do ML in the browser, I'll need to reimplement all ML model by using JavaScript. It's a lot of work.
+
+Even sometimes including the preprocessing if I want to do text based ML.
+
+——————————————
+
+Jan 12, 2020
+
+
+很多时候，我们不是喜欢某个特定的人。
+
+我们只是喜欢 a concept of beauty.
+
+
+
+
+For perfect life, you gonna do two things:
+
+1. Write diary or books that settled down your mind
+2. Collect and manage useful resources or information
+
+——————————————
+
+Jan 15, 2020
+
+
+Dark Net is the part of the Internet below the private deep web that uses custom software and hidden networks superimposed on the architecture of the Internet.
+
+I have confidence that we all in dark network in China. (You can not get anything useful from local search engine like baidu)
+
+——————————————
+
+Jan 16, 2020
+
+
+英语好的一大特点可能就是 我能清楚的知道我哪些地方讲错了
+
+凡是我 感觉异样、无法理解、语意不通顺、不符合通常听到的话 的地方都是错的
+
+然后我会在内心默默纠正、强调几次
+
+
+
+爱情公寓5里的挖掘机少女点醒了我：读哪个专业的人会哪个专业的东西并不稀奇，稀奇的是不是那个专业的人却精通另一个完全和专业不相关的行业的知识，这才是人才，并且还是有叛逆精神的和我比较类似的人才。
+
+所以我找女朋友还是不能只看普通话和英语能力，英语、教师专业的人会这些并不稀奇，要是找普通人就完全没意思了。
+
+
+
+
+凡是我提不起精力做的事都没有意义
+
+——————————————
+
+Jan 19, 2020
+
+
+程序员不健身就像做爱不用润滑剂，是不流畅的。 
+
+健身带来的 意志力的增强 和 精力的增强 无疑对写代码起到了巨大的推动力。
+
+
+
+
+We love the night for its peaceful.
+
+Only in such an quite environment, we can concentrate most on our work.
+
+Only in such an lonely environment, we could forget about the women. The less we see them, the less we miss them.
+
+
+
+
+你的 性欲 和 你每天看到的女性数量 呈正相关
+
+我在家一个人呆着的时候，就不太会去想性爱
+
+(没准这和“眼不见心不烦”，有异曲同工之妙)
